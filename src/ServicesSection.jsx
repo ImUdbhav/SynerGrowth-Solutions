@@ -70,52 +70,166 @@ const services = [
 ];
 
 const cardVariants = {
-  offscreen: {
-    y: 300,
-    opacity: 0,
-  },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.7,
-      duration: 0.8,
+    offscreen: {
+      y: 80,
+      opacity: 0,
+      scale: 0.95,
     },
-  },
-};
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.5,
+        duration: 0.9,
+      },
+    },
+  };
+  
+  const listItemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: (i) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.08,
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    }),
+  };
+  
+  const hoverVariants = {
+    hover: {
+      y: -8,
+      rotateZ: -1,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 10,
+      },
+    },
+  };
+  
+  const ServicesSec = () => {
+    return (
+      <section className="py-24 bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200">
+        <div className="container mx-auto px-4 lg:px-8">
+        <div className="text-center mb-16 overflow-hidden">
+  <motion.h2
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-600 to-teal-800 bg-clip-text text-transparent mb-4 font-sans"
+  >
+    NDIS Business Support
+  </motion.h2>
 
-const ServicesSection = () => {
-  return (
-    <section className="py-16  bg-gradient-to-r from-slate-100 via-slate-200   to-slate-300 text-white">
-      <div className="container mx-auto px-6 lg:px-20">
-        <h2 className="text-[2rem] md:text-4xl font-bold font-sans text-[#0C2340] text-center mb-12">NDIS Business Support</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="bg-white  p-6 rounded-lg shadow-lg transform transition hover:scale-105"
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.4 }}
-              variants={cardVariants}
-
-            >
-              <div className="flex items-center justify-center">
-                {service.icon}
-              </div>
-              <h3 className="text-2xl font-sans text-gray-900 text-center mb-6">{service.title}</h3>
-              <ul className="list-disc font-serif list-inside space-y-3 text-gray-600 text-left">
-                {service.details.map((detail, idx) => (
-                  <li className='font-serif' key={idx}>{detail}</li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+  <motion.p
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.8, ease: "easeIn", delay: 0.3 }}
+    className="text-lg text-slate-600 max-w-2xl mx-auto font-serif"
+  >
+    Comprehensive solutions tailored for NDIS providers to enhance compliance, operations, and growth.
+  </motion.p>
+</div>
+  
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                className="group relative bg-white/90 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-8 border border-slate-200/80 hover:border-teal-100"
+                initial="offscreen"
+                whileInView="onscreen"
+                whileHover="hover"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={cardVariants}
+              >
+                <motion.div
+                  variants={hoverVariants}
+                  className="absolute inset-0 bg-gradient-to-br from-white to-teal-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
+                />
+                
+                <div className="relative z-10">
+                  <motion.div 
+                    className="mb-6 flex justify-center"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ 
+                      type: "spring",
+                      delay: 0.2,
+                      stiffness: 150,
+                      damping: 10 
+                    }}
+                  >
+                    <motion.div 
+                      className="p-4 bg-gradient-to-br from-teal-600 to-teal-700 rounded-lg shadow-sm"
+                      whileHover={{
+                        scale: 1.05,
+                        rotateZ: [0, -2, 2, -2, 0],
+                        transition: { 
+                          duration: 0.6,
+                          ease: "easeInOut"
+                        }
+                      }}
+                    >
+                      {React.cloneElement(service.icon, { 
+                        className: "text-white w-8 h-8",
+                      })}
+                    </motion.div>
+                  </motion.div>
+                  
+                  <motion.h3 
+                    className="text-2xl font-semibold text-slate-800 mb-6 text-center font-sans"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    {service.title}
+                  </motion.h3>
+                  
+                  <ul className="space-y-3">
+                    {service.details.map((detail, idx) => (
+                      <motion.li 
+                        key={idx}
+                        className="flex items-start text-slate-600 font-serif"
+                        variants={listItemVariants}
+                        initial="hidden"
+                        animate="visible"
+                        custom={idx}
+                      >
+                        <motion.svg
+                          className="flex-shrink-0 w-5 h-5 text-teal-600 mt-1 mr-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ 
+                            delay: idx * 0.08 + 0.3,
+                            duration: 0.4,
+                            ease: "easeInOut"
+                          }}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </motion.svg>
+                        <span>{detail}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-};
-
-export default ServicesSection;
+      </section>
+    );
+  };
+  export default ServicesSec;

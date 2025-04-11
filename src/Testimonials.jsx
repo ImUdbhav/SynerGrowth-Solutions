@@ -40,8 +40,8 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-8 md:py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-14 md:py-24 bg-gray-50">
+      <div className="container mx-auto px-4 ">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl md:text-4xl font-bold text-[#0C2340] mb-12">What our Clients say</h2>
           <div className="space-y-12 md:space-y-12 ">
@@ -54,9 +54,9 @@ const Testimonials = () => {
                 className="bg-white rounded-lg shadow-lg p-6 md:p-8 relative"
               >
                 <FaQuoteLeft className="text-teal-500 text-3xl md:text-4xl absolute -top-6 left-6" />
-                <p className="text-base md:text-lg text-gray-700 mb-4">{testimonial.text}</p>
+                <p className="text-sm md:text-base text-gray-700 mb-4">{testimonial.text}</p>
                 <div className="mt-4 md:mt-6">
-                  <p className="font-bold text-[#0C2340]">{testimonial.name}</p>
+                  <p className="font-bold text-sm md:text-base text-[#0C2340]">{testimonial.name}</p>
                   {/* <p className="text-gray-600">{testimonial.position}</p> */}
                 </div>
               </motion.div>

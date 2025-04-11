@@ -5,13 +5,14 @@ import ValueProp from '../ValuProp'
 import Intro from '../Intro'
 import WhatNDIS from '../WhatNDIS'
 import Testimonials from '../Testimonials'
+import ServicesSec from '../ServicesSection'
 
 const Home = () => {
   return (
     <div> 
         <HeroSection/>
         <Intro/>
-        <ServicesSection/>
+        <ServicesSec/>
         <Testimonials/>
         <ValueProp/>
         
