@@ -42,7 +42,7 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="relative mt-12 z-10 text-center">
+      <div className="relative mt-14 z-10 text-center">
         <motion.h1
           variants={textVariants}
           initial="hidden"

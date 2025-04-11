@@ -1,71 +1,65 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaQuoteLeft } from 'react-icons/fa';
+import Button from './Button';
+import { FaHandshake } from "react-icons/fa6";
+import { FaCompass } from "react-icons/fa";                         
+import { FaRocket } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
-const testimonialVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-    },
-  },
-};
 
-const testimonials = [
-  {
-    id: 1,
-    name: 'Jon Whitfield',
-    position: 'CEO, Tech Solutions Inc.',
-    text:
-      'Working with our company, they provided exceptional services that transformed our operations and compliance management. Highly recommended!',
-  },
-  {
-    id: 2,
-    name: 'Emma Larkins',
-    position: 'HR Manager, Innovate Corp.',
-    text:
-      'Their HR services were instrumental in enhancing our recruitment processes and employee development. A trusted partner for growth.',
-  },
-  {
-    id: 3,
-    name: 'David Brown',
-    position: 'CFO, Finance Group Ltd.',
-    text:
-      'Their financial management services enabled us to streamline our financial processes and achieve better budget control. Excellent service!',
-  },
-];
-
-const Testimonials = () => {
+const ValueProp = () => {
+  const navigate = useNavigate();
   return (
-    <section className="py-14 md:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 ">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-[#0C2340] mb-12">What our Clients say</h2>
-          <div className="space-y-12 md:space-y-12 ">
-            {testimonials.map((testimonial) => (
-              <motion.div
-                key={testimonial.id}
-                variants={testimonialVariants}
-                initial="hidden"
-                animate="visible"
-                className="bg-white rounded-lg shadow-lg p-6 md:p-8 relative"
-              >
-                <FaQuoteLeft className="text-teal-500 text-3xl md:text-4xl absolute -top-6 left-6" />
-                <p className="text-sm md:text-base text-gray-700 mb-4">{testimonial.text}</p>
-                <div className="mt-4 md:mt-6">
-                  <p className="font-bold text-sm md:text-base text-[#0C2340]">{testimonial.name}</p>
-                  {/* <p className="text-gray-600">{testimonial.position}</p> */}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+    <section className="py-24 bg-gradient-to-r  from-white via-gray-50 to-gray-100">
+      <div className="container mx-auto px-4">
+        <h2 className="text-[2rem] md:text-4xl font-bold text-[#0C2340] mb-12 text-center">Why Choose Us</h2>
+        <p className="text-lg mb-12 text-center text-gray-600 leading-relaxed">
+          At SynerGrowth Solutions, we're committed to empowering NDIS providers and driving positive change in the disability sector. Here's why you should partner with us:
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
+          <motion.div
+            className="flex flex-col items-center cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="mb-4">
+              <FaHandshake  className="w-16 h-16 text-teal-700"/>
+              
+            </div>
+            <p className="text-center text-gray-600 font-semibold mb-2">Personalized Approach</p>
+            <p className="text-sm text-center text-gray-600">We understand that every NDIS provider is unique. That's why we tailor our solutions to meet your specific needs and goals.</p>
+          </motion.div>
+          <motion.div
+            className="flex flex-col items-center cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="mb-4">
+              <FaCompass className="w-16 h-16  text-teal-700"/>
+              
+            </div>
+            <p className="text-center text-gray-600 font-semibold mb-2">Expert Guidance</p>
+            <p className="text-sm text-center text-gray-600">Our team of experienced consultants provides expert guidance and support every step of the way, ensuring your success in the NDIS sector.</p>
+          </motion.div>
+          <motion.div
+            className="flex flex-col items-center cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="mb-4">
+            <FaRocket  className="w-16 h-16  text-teal-700"/>
+            </div>
+            <p className="text-center text-gray-600 font-semibold mb-2">Innovative Solutions</p>
+            <p className="text-sm text-center text-gray-600">We stay ahead of the curve by embracing innovation and adopting cutting-edge strategies to drive positive outcomes for our clients.</p>
+          </motion.div>
+        </div>
+        <div className="text-center mt-8">
+          <Button
+            text="Partner With Us"
+            onClick={() => navigate("/Contact")}
+            className="font-serif bg-[#0C2340] text-white px-8 py-4 rounded-full font-bold text-lg shadow-md hover:shadow-lg mt-6"
+          />
         </div>
       </div>
     </section>
   );
 };
 
-export default Testimonials;
+export default ValueProp;
