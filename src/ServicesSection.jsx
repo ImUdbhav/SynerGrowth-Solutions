@@ -114,9 +114,9 @@ const cardVariants = {
   
   const ServicesSec = () => {
     return (
-      <section className="py-24 bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200">
-        <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-16 overflow-hidden">
+      <section className="py-24 px-4 bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 ">
+        <div className="container mx-auto px-2 lg:px-8">
+        <div className="text-center mb-24 overflow-hidden">
   <motion.h2
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -136,7 +136,7 @@ const cardVariants = {
   </motion.p>
 </div>
   
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-9 gap-y-20">
             {services.map((service, index) => (
               <motion.div
                 key={index}

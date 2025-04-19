@@ -12,6 +12,10 @@ const Navbar = () => {
   };
   const closeMenu = () => {
     setIsOpen(false);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    }); // Scroll to the top of the page when a link is clicked
   };
 
   return (

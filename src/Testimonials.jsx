@@ -40,11 +40,11 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-14 md:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 ">
+    <section className="py-16 md:py-24 bg-gray-50">
+      <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-[#0C2340] mb-12">What our Clients say</h2>
-          <div className="space-y-12 md:space-y-12 ">
+          <h2 className="text-2xl md:text-4xl font-bold text-[#0C2340] mb-16">What our Clients say</h2>
+          <div className="space-y-16 md:space-y-20 ">
             {testimonials.map((testimonial) => (
               <motion.div
                 key={testimonial.id}
