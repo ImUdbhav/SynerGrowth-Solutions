@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from '/Syner.png'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -22,7 +22,9 @@ const Navbar = () => {
     <nav className="bg-gray-800 shadow-lg fixed  w-full z-50 top-0 font-roboto-slab ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-1">
         <div className="flex items-center justify-between h-24"> 
+          <Link to="/" >
           <img src={Logo} alt="Logo" className='w-[150px] max-lg:w-[120px] md:ml-6'  />
+          </Link>
           <div className="hidden md:flex space-x-28">
             {/* <a href="#" className="text-white hover:bg-teal-950 hover:text-white px-3 py-2 rounded-md text-base font-bold" onClick={closeMenu}>
               Home
