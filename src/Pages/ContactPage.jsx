@@ -54,7 +54,7 @@ const ContactPage = () => {
               variants={heroVariants}
               className="space-y-6 mr-12"
             >
-              <div className="bg-white font-serif bg-opacity-10 rounded-lg p-6 px-8">
+              <div className="bg-white font-serif bg-opacity-10 rounded-lg p-6 px-8 max-lg:p-4">
                 <h3 className="text-2xl  font-bold mb-2"><MdEmail/></h3>
                 <p className='text-base'>info@synergrowthsolutions.com</p>
               </div>
