@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Button from './Button';
 import { useNavigate } from 'react-router-dom';
+import bg from '/11.webp'; // Adjust the path to your image
 
 const HeroSection = () => {
   const [isTextVisible, setIsTextVisible] = useState(false);
@@ -34,7 +35,7 @@ const HeroSection = () => {
       {/* Animated Background */}
       <motion.div 
         className="absolute inset-0 bg-no-repeat bg-cover bg-center "
-        style={{ backgroundImage: `url('10.png')`, }}
+        style={{ backgroundImage: `url(${bg})`, }}
         
         initial={{ scale: 1, rotate: 0 }}
         animate={{ scale: 1.1, rotate: 3 }}
